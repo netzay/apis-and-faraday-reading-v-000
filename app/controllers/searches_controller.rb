@@ -22,9 +22,8 @@ class SearchesController < ApplicationController
         @error = body["meta"]["errorDetail"]
       end
  
-    rescue Faraday::ConnectionFailed
-      @error = "There was a timeout. Please try again."
-    end
+   body_hash = JSON.parse(@resp.body)
+    @venues = body_hash["response"]["venues"]
     render 'search'
   end
 end
