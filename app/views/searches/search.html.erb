@@ -5,4 +5,5 @@
   <%= submit_tag "Search!" %>
 <% end %>
 <div>
-<%= @venues %></div>
+  <%= @resp.body if @resp %>
+</div>
